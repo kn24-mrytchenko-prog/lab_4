@@ -5,16 +5,24 @@ function reverseWithoutNumbers(str) {
 	// Масив для збереження символів, які не є цифрами
 	const chars = [];
 	
-	for (let char of str) {
-	  // Перевіряємо, чи символ не є цифрою
-	  if (!(char >= '0' && char <= '9')) {
-		chars.push(char);
-	  }
-	}
-	
-	// Зворотній порядок для масиву з символами і повернення рядка
-	return chars.reverse().join('');
+function reverseWithoutNumbers(str) {
+  let result = '';
+
+  for (let i = str.length - 1; i >= 0; i--) {
+    const char = str[i];
+    if (!(char >= '0' && char <= '9')) {
+      result += char;
+    }
   }
+
+  return result;
+}
+
+console.log(reverseWithoutNumbers("hello123world456")); // "dlrowolleh"
+console.log(reverseWithoutNumbers("abc123xyz"));       // "zyxabc"
+
+module.exports = reverseWithoutNumbers;
+
 
 console.log(reverseWithoutNumbers("hello123world456")); // Виведе: "dlrowolleh"
 console.log(reverseWithoutNumbers("abc123xyz"));       // Виведе: "zyxabc"
